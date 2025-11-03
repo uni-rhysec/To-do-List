@@ -225,7 +225,7 @@ def add_task(task_list, description, priority):
 	- include 1-based indices
 	- return None
 - main
-	- gives user options to add, remove, display, close, etc.
+	- gives user options to add, display, close, etc.
 	- invalid input -> repeat prompt
 	- when operation completed, repeat prompt
 	- return None
