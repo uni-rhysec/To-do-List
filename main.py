@@ -1,3 +1,5 @@
+import re
+
 def main():
     running=True
     while running:
@@ -13,3 +15,14 @@ def main():
                 save()
             case "close":
                 running=False
+
+def get_date():
+    checking=True
+    while checking:
+        inp=input("Enter date in YYYY-MM-DD HH:MM format, or \"stop\" to cancel operation: ")
+        if inp.lower()=="stop":
+            return ("".False)
+        if re.search("[0-9]{4}-[0-9]{2}-[0-9]{2} (0?[0-9]|1[0-9]|2[0-3]):([0-5][0-9])", inp):
+            checking=False
+            return (inp,True)
+        print("Incorrect format!")
