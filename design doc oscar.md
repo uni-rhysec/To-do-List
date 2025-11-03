@@ -224,7 +224,7 @@ def add_task(task_list, description, priority):
 	- display to-do list in string format
 	- include 1-based indices
 	- no return
-- main
+- /main
 	- gives user options to add, display, close, etc.
 	- invalid input -> repeat prompt
 	- when operation completed, repeat prompt
