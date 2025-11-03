@@ -210,7 +210,7 @@ def add_task(task_list, description, priority):
 
 ### Your Functions:
 
-- get date input
+- /get date input
 	- gets a date in the required format e.g. YYYY/MM/DD HH:MM
 	- wrong format -> keep requesting date unless provided escape input given (e.g. "cancel" or something)
 	- return double (2-tuple) with string containing valid date and bool representing validity (cancelling operation invalidates the string)
