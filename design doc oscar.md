@@ -215,32 +215,35 @@ def add_task(task_list, description, priority):
 	- wrong format -> keep requesting date unless provided escape input given (e.g. "cancel" or something)
 	- return double (2-tuple) with string containing valid date and bool representing validity (cancelling operation invalidates the string)
 - save
-	- save list to file
-	- return None
+	- save list to file using json
+	- no return
 - load
 	- load file and deserialise input into list
-	- return None
+	- no return
 - display
 	- display to-do list in string format
 	- include 1-based indices
-	- return None
+	- no return
 - main
 	- gives user options to add, display, close, etc.
 	- invalid input -> repeat prompt
 	- when operation completed, repeat prompt
-	- return None
+	- no return
 - add
 	- ask user for task name
 	- ask for task desc.
 	- ask for due date using `get date input`
+	- no return
 - modify
 	- select task using 1-based index
 	- looping menu like in `main`
 	- allow options to remove the task; change the task description, name, or date; or complete the task
+	- no return
 - (optional) complete
 	- select task using 1-based index
 	- completes task
 	- shortcut for using `modify` and then completing the task
+	- no return
 
 **Function 1:**
 ```python
