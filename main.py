@@ -88,22 +88,24 @@ def save():
     file.close()
 
 def add():
-    
+    global lst
+
     name = input("Enter task name: ")
     while name.blank() or name.isspace():
         name = input("Enter task name: ")
 
     description = input("Enter task description: ")
     while description.blank() or description.isspace():
-        description = input("Enter task name: ")
+        description = input("Enter task description: ")
     
     date,success = get_date()
-    while not success:
-        date,success = get_date()
+    if not success:
+        print("Task addition cancelled")
+        return
 
     task_dict = {"name":name,
-                "desc.":description,
-                "date due":date,
+                "desc":description,
+                "date":date,
                 "complete":False}
     lst.append(task_dict)
 
@@ -135,18 +137,6 @@ def complete():
     global lst
     index=select_task()
     lst[index]["complete"]=True
-
-def add():
-    global lst
-    name = input("Enter task name: ")
-    desc = input("Enter task description: ")
-    date_tuple = get_date()
-    if not date_tuple[1]:
-        print("Task addition cancelled")
-        return
-    date = date_tuple[0]
-    complete = False
-    lst.append({"name":name,"desc":desc,"date":date,"complete":complete})
 
 def display():
     for i in range(len(lst)):
