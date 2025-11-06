@@ -60,15 +60,15 @@ def select_operation():
 def modify():
     global lst
     #lst = [{"name": "task1", "desc": "task1 desc","date":"2025-11-06 10:00","complete":True}, {"name": "task2", "date": "2090-11-06 09:26"}] # example
-    input = select_task() # 
-    task_to_edit = lst[input]
+    inp = select_task() # 
+    task_to_edit = lst[inp]
     operation = select_operation()
     match operation:
         case 1:
-            new_name = ("Enter new name: ")
+            new_name = input("Enter new name: ")
             task_to_edit.update({"name": new_name})
         case 2:
-            new_desc = ("Enter new description: ")
+            new_desc = input("Enter new description: ")
             task_to_edit.update({"desc": new_desc})
         case 3:
             new_date = get_date()
@@ -79,7 +79,7 @@ def modify():
             else:
                 task_to_edit.update({"complete": True})
         case 5:
-            lst.pop(input)
+            lst.pop(inp)
 
 def save():
     string = json.dumps(lst)
@@ -91,11 +91,11 @@ def add():
     global lst
 
     name = input("Enter task name: ")
-    while name.blank() or name.isspace():
+    while name=="" or name==" ":
         name = input("Enter task name: ")
 
     description = input("Enter task description: ")
-    while description.blank() or description.isspace():
+    while description=="" or description==" ":
         description = input("Enter task description: ")
     
     date,success = get_date()
@@ -139,6 +139,7 @@ def complete():
     lst[index]["complete"]=True
 
 def display():
+    print("To do: ")
     for i in range(len(lst)):
         task = lst[i]
         complete_str = "Not complete"
@@ -146,3 +147,6 @@ def display():
             complete_str = "Complete"
         string = f"{i+1}. {task["name"]}\n    {task["desc"]}\n    due: {task["date"]}\n    complete: {complete_str}"
         print(string)
+
+if __name__=="__main__":
+    main()
