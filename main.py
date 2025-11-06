@@ -77,3 +77,12 @@ def add():
     date = date_tuple[0]
     complete = False
     lst.append({"name":name,"desc":desc,"date":date,"complete":complete})
+
+def display():
+    for i in range(len(lst)):
+        task = lst[i]
+        complete_str = "Not complete"
+        if task["complete"]:
+            complete_str = "Complete"
+        string = f"{i+1}. {task["name"]}\n    {task["desc"]}\n    due: {task["date"]}\n    complete: {complete_str}"
+        print(string)
