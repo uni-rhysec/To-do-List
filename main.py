@@ -1,4 +1,5 @@
 import re
+import json
 
 def main():
     running=True
@@ -26,3 +27,15 @@ def get_date():
             checking=False
             return (inp,True)
         print("Incorrect format!")
+
+def save():
+    string=json.dumps(lst)
+    file=open("to do list.txt","w")
+    file.write(string)
+    file.close()
+
+def load():
+    file=open("to do list.txt","r")
+    string=file.read()
+    file.close()
+    lst=json.loads(string)
