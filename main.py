@@ -55,3 +55,8 @@ def select_task():
                 print("No task with this number!")
         else:
             print("Invalid input")
+
+def complete():
+    global lst
+    index=select_task()
+    lst[index]["complete"]=True
