@@ -65,3 +65,15 @@ def complete():
     global lst
     index=select_task()
     lst[index]["complete"]=True
+
+def add():
+    global lst
+    name = input("Enter task name: ")
+    desc = input("Enter task description: ")
+    date_tuple = get_date()
+    if not date_tuple[1]:
+        print("Task addition cancelled")
+        return
+    date = date_tuple[0]
+    complete = False
+    lst.append({"name":name,"desc":desc,"date":date,"complete":complete})
