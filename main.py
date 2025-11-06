@@ -6,7 +6,7 @@ global lst
 def main():
     running = True
     while running:
-        inp = input("add, display, modify, or close: ")
+        inp = input("add, display, modify, complete, or close: ")
         match inp.lower():
             case "add":
                 add()
@@ -16,8 +16,13 @@ def main():
             case "modify":
                 modify()
                 save()
+            case "complete":
+                complete()
+                save()
             case "close":
                 running = False
+            case _:
+                pass
 
 def get_date():
     checking=True
