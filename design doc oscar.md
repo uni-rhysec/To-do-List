@@ -214,10 +214,10 @@ def add_task(task_list, description, priority):
 	- gets a date in the required format e.g. YYYY/MM/DD HH:MM
 	- wrong format -> keep requesting date unless provided escape input given (e.g. "cancel" or something)
 	- return double (2-tuple) with string containing valid date and bool representing validity (cancelling operation invalidates the string)
-- save
+- /save
 	- save list to file using json
 	- no return
-- load
+- /load
 	- load file and deserialise input into list
 	- no return
 - display
@@ -245,8 +245,9 @@ def add_task(task_list, description, priority):
 	- completes task
 	- shortcut for using `modify` and then completing the task
 	- no return
-- select_task
+- /select_task
 	- called in `complete` and `modify`
+	- display to-do list
 	- ask user for 1-based index of task
 	- if index outside of task range repeat input request
 	- returns the _0-based_ index of the task
