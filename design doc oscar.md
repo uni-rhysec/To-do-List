@@ -229,7 +229,7 @@ def add_task(task_list, description, priority):
 	- invalid input -> repeat prompt
 	- when operation completed, repeat prompt
 	- no return
-- add
+- /add
 	- ask user for task name
 	- ask for task desc.
 	- ask for due date using `get date input`
