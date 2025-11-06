@@ -1,9 +1,11 @@
 import re
 import json
+import os
 
 global lst
 
 def main():
+    load()
     running = True
     while running:
         inp = input("add, display, modify, complete, or close: ")
@@ -43,6 +45,9 @@ def save():
 
 def load():
     global lst
+    if not os.path.exists("to do list.txt"):
+        lst = []
+        return
     file = open("to do list.txt","r")
     string = file.read()
     file.close()
