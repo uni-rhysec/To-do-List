@@ -3,10 +3,16 @@ import json
 
 global lst
 
+
+def main(): 
+    load()
+    running=True
+
 global lst
 
 def main():
     running = True
+
     while running:
         inp = input("add, display, modify, complete, or close: ")
         match inp.lower():
@@ -30,8 +36,13 @@ def get_date():
     checking=True
     while checking:
         inp=input("Enter date in YYYY-MM-DD HH:MM format, or \"stop\" to cancel operation: ")
-        #if inp.lower()=="stop":
-            #return ("".False)
+
+        if inp.lower()=="stop":
+            return ("",False)
+
+        if inp.lower()=="stop":
+            return ("".False)
+
         if re.search("[0-9]{4}-[0-9]{2}-[0-9]{2} (0?[0-9]|1[0-9]|2[0-3]):([0-5][0-9])", inp):
             checking=False
             return (inp,True)
@@ -83,8 +94,6 @@ def modify():
                 task_to_edit.update({"complete": True})
         case 5:
             lst.pop(input)
-
-# {name: desc, date, complete}
         
 modify()
         inp = input("Enter date in YYYY-MM-DD HH:MM format, or \"stop\" to cancel operation: ")
@@ -101,10 +110,35 @@ def save():
     file.write(string)
     file.close()
 
+def add():
+    
+    name = input("Enter task name: ")
+    while name.blank() or name.isspace():
+        name = input("Enter task name: ")
+
+    description = input("Enter task description: ")
+    while description.blank() or description.isspace():
+        description = input("Enter task name: ")
+    
+    date,success = get_date()
+    while not success:
+        date,success = get_date()
+
+    task_dict = {"name":name,
+                "desc.":description,
+                "date due":date,
+                "complete":False}
+    lst.append(task_dict)
+
 def load():
     global lst
+
+    file=open("to do list.txt","r")
+    string=file.read()
+
     file = open("to do list.txt","r")
     string = file.read()
+
     file.close()
     lst = json.loads(string)
 
