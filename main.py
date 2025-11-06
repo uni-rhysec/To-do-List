@@ -22,7 +22,7 @@ def get_date():
     while checking:
         inp=input("Enter date in YYYY-MM-DD HH:MM format, or \"stop\" to cancel operation: ")
         if inp.lower()=="stop":
-            return ("".False)
+            return ("",False)
         if re.search("[0-9]{4}-[0-9]{2}-[0-9]{2} (0?[0-9]|1[0-9]|2[0-3]):([0-5][0-9])", inp):
             checking=False
             return (inp,True)
@@ -35,6 +35,7 @@ def save():
     file.close()
 
 def load():
+    global lst
     file=open("to do list.txt","r")
     string=file.read()
     file.close()
