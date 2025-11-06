@@ -4,17 +4,9 @@ import os
 
 global lst
 
-
-def main(): 
-    load()
-    running=True
-
-global lst
-
 def main():
     load()
     running = True
-
     while running:
         inp = input("add, display, modify, complete, or close: ")
         match inp.lower():
@@ -38,13 +30,8 @@ def get_date():
     checking=True
     while checking:
         inp=input("Enter date in YYYY-MM-DD HH:MM format, or \"stop\" to cancel operation: ")
-
         if inp.lower()=="stop":
             return ("",False)
-
-        if inp.lower()=="stop":
-            return ("".False)
-
         if re.search("[0-9]{4}-[0-9]{2}-[0-9]{2} (0?[0-9]|1[0-9]|2[0-3]):([0-5][0-9])", inp):
             checking=False
             return (inp,True)
@@ -75,7 +62,7 @@ def select_operation():
 
 def modify():
     global lst
-    lst = [{"name": "task1", "desc": "task1 desc","date":"2025-11-06 10:00","complete":True}, {"name": "task2", "date": "2090-11-06 09:26"}] # example
+    #lst = [{"name": "task1", "desc": "task1 desc","date":"2025-11-06 10:00","complete":True}, {"name": "task2", "date": "2090-11-06 09:26"}] # example
     input = select_task() # 
     task_to_edit = lst[input]
     operation = select_operation()
@@ -96,15 +83,6 @@ def modify():
                 task_to_edit.update({"complete": True})
         case 5:
             lst.pop(input)
-        
-modify()
-        inp = input("Enter date in YYYY-MM-DD HH:MM format, or \"stop\" to cancel operation: ")
-        if inp.lower() == "stop":
-            return ("", False)
-        if re.search("[0-9]{4}-[0-9]{2}-[0-9]{2} (0?[0-9]|1[0-9]|2[0-3]):([0-5][0-9])", inp):
-            checking = False
-            return (inp, True)
-        print("Incorrect format!")
 
 def save():
     string = json.dumps(lst)
