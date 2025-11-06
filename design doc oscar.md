@@ -233,6 +233,7 @@ def add_task(task_list, description, priority):
 	- ask user for task name
 	- ask for task desc.
 	- ask for due date using `get date input`
+	- if the date is invalid cancel the operation
 	- no return
 - modify
 	- select task using 1-based index
@@ -244,6 +245,11 @@ def add_task(task_list, description, priority):
 	- completes task
 	- shortcut for using `modify` and then completing the task
 	- no return
+- select_task
+	- called in `complete` and `modify`
+	- ask user for 1-based index of task
+	- if index outside of task range repeat input request
+	- returns the _0-based_ index of the task
 
 **Function 1:**
 ```python
