@@ -240,7 +240,7 @@ def add_task(task_list, description, priority):
 	- looping menu like in `main`
 	- allow options to remove the task; change the task description, name, or date; or complete the task
 	- no return
-- (optional) complete
+- /complete
 	- select task using 1-based index
 	- completes task
 	- shortcut for using `modify` and then completing the task
