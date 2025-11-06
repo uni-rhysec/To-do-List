@@ -235,7 +235,7 @@ def add_task(task_list, description, priority):
 	- ask for due date using `get date input`
 	- if the date is invalid cancel the operation
 	- no return
-- modify
+- /modify
 	- select task using 1-based index
 	- looping menu like in `main`
 	- allow options to remove the task; change the task description, name, or date; or complete the task
