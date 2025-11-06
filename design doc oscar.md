@@ -220,7 +220,7 @@ def add_task(task_list, description, priority):
 - /load
 	- load file and deserialise input into list
 	- no return
-- !display
+- /display
 	- display to-do list in string format
 	- include 1-based indices
 	- no return
