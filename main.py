@@ -1,6 +1,8 @@
 import re
 import json
 
+global lst
+
 def main():
     running = True
     while running:
