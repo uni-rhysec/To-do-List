@@ -37,9 +37,6 @@ def get_date():
             return (inp,True)
         print("Incorrect format!")
 
-def select_task():
-    return 1
-
 def select_operation():
     print("Select an operation (1-5).\n" \
             "1. Edit name\n" \
